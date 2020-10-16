@@ -22,7 +22,7 @@ public class ProjectApiBankApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Long cpf = (long) 1212343;
-		Client client1 = new Client("Mateus", "Medeiros", "mateus@medeiros", cpf);
+		Client client1 = new Client(1L, "Mateus", "Medeiros", "mateus@mateus", cpf);
 
 		
 		clientRepository.save(client1);

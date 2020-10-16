@@ -5,7 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Value;
 
 import com.sun.istack.NotNull;
 
@@ -15,9 +18,14 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Long cpf;
+	@GeneratedValue
+	private Long idClient;
+
+
 	
 	@Column
+	@NotNull
+	private Long cpf;
 	private String nome;
 	private String sobrenome;
 	private String email;
@@ -31,16 +39,24 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public Client(String nome, String sobrenome, String email, Long cpf) {
+	public Client(Long idClient, String nome, String sobrenome, String email,  Long cpf) {
 
+		this.idClient = idClient;
 		this.nome = nome;
-		
-		
 		this.sobrenome = sobrenome;
 		this.email = email;
 		this.dataNacimento = dataNacimento;
 		this.cpf = cpf;
 
+	}
+	
+	public Long getIdClient() {
+		
+		return idClient;
+	}
+
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getNome() {

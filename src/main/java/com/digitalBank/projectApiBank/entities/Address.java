@@ -1,6 +1,8 @@
 package com.digitalBank.projectApiBank.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -10,6 +12,10 @@ import javax.persistence.OneToOne;
 public class Address {
 	
 	@Id
+	@GeneratedValue
+	private Long idAdress;
+	
+	@Column
 	private Long cep;
 	private String rua;
 	private String bairro;
@@ -17,9 +23,9 @@ public class Address {
 	private String cidade;
 	private String estado;
 	
-//	@OneToOne
-//	@JoinColumn(name = "CPF")
-//	private Client client;
+	@OneToOne
+	@JoinColumn(name = "CPF")
+	private Client client;
 	
 	
 	public Address() {

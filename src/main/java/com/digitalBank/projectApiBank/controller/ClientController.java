@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.digitalBank.projectApiBank.entities.Client;
@@ -28,21 +29,31 @@ public class ClientController {
 		return ResponseEntity.ok().body(list);
 	}
 
-	@GetMapping(path = "/{cpf}")
-	public ResponseEntity<Client> findByCPF(@PathVariable Long cpf) {
-		Client cliente = clientRepository.findById(cpf).get();
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<Client> findByCPF(@PathVariable Long id) {
+		Client cliente = clientRepository.findById(id).get();
 		return ResponseEntity.ok().body(cliente);
 	}
 	
-	@PostMapping(path = "/client/save")
-	public void saveClient(@RequestBody Client client) {
-		clientRepository.save(client);
+//	@PostMapping(path = "/client/save/")
+//	public Client saveClient(@RequestBody Client client) {
+//		return clientRepository.save(client);
+//	}
+	
+//    @RequestMapping(value = "/client/save", method=RequestMethod.PUT)
+//    public void saveClient(@RequestBody Client client) {
+//    	clientRepository.save(client);
+//    }
+	
+	@PostMapping(path = "/save")
+	public Client saveClient(@RequestBody Client client) {
+		return clientRepository.save(client);
 	}
 	
-	@DeleteMapping(path = "/client/delete/{cpf}")
+	@DeleteMapping(path = "/delete/{id}")
 	public void deleteClient(
-			@PathVariable(name = "cpf",required = true) Long cpf) {
-		clientRepository.deleteById(cpf);
+			@PathVariable(name = "id",required = true) Long id) {
+		clientRepository.deleteById(id);
 	}
 	
 
