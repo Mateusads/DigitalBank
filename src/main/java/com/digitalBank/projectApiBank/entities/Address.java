@@ -1,38 +1,59 @@
 package com.digitalBank.projectApiBank.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+
+//cep obrigatório e no formato adequado
+//rua obrigatório
+//bairro obrigatório
+//complemento obrigatório
+//cidade obrigatória
+//estado obrigatório
+//tudo que é obrigatório do passo 1 precisa estar correto
 
 @Entity
-public class Address {
-	
+public class Address implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Long idAdress;
 	
 	@Column
-	private Long cep;
+	@NotBlank
+	@Pattern(regexp= "[0-9]{5}-[0-9]{3}", message = "Invalid Format")
+	private String cep;
+	@NotBlank
 	private String rua;
+	@NotBlank
 	private String bairro;
+	@NotBlank
 	private String complemento;
+	@NotBlank
 	private String cidade;
+	@NotBlank
 	private String estado;
 	
 	@OneToOne
-	@JoinColumn(name = "CPF")
+	@JoinColumn(name = "idClient")
 	private Client client;
 	
 	
 	public Address() {
 	}
 
-	public Address(Long cep, String rua, String bairro, String complemento, String cidade, String estado) {
-		super();
+	public Address(String cep, String rua, String bairro, String complemento, String cidade, String estado) {
+		
+		this.idAdress = idAdress;
 		this.cep = cep;
 		this.rua = rua;
 		this.bairro = bairro;
@@ -41,22 +62,19 @@ public class Address {
 		this.estado = estado;
 	}
 
-	public Address(Long cep, String rua, String bairro, String cidade, String estado) {
-		super();
-		this.cep = cep;
-		this.rua = rua;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
-	}
 
-	public Long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
+
+	public Long getIdAdress() {
+		return idAdress;
+	}
+
 
 	public String getRua() {
 		return rua;
