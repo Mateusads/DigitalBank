@@ -22,7 +22,7 @@ public class ResourceExceptionHandler {
 		
 		error.setTimestamp(Instant.now());
 		error.setStatus(HttpStatus.NOT_FOUND.value());
-		error.setError("Client not found");
+		error.setError("Not found");
 		error.setMessage(e.getMessage());
 		error.setPath(request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -46,7 +46,7 @@ public class ResourceExceptionHandler {
 		StandardError error = new StandardError();
 		error.setTimestamp(Instant.now());
 		error.setStatus(HttpStatus.BAD_REQUEST.value());
-		error.setError("under 18 years old ");
+		error.setError("IllegalArgumentException ");
 		error.setMessage(e.getMessage());
 		error.setPath(request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);

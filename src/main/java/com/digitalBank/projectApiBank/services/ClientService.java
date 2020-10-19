@@ -35,16 +35,14 @@ public class ClientService {
 
 	public Client saveClient(@Valid @RequestBody Client client) {
 		try {
-
+			
 			Boolean ageTrue = ageClient(client);
-
 			if (ageTrue == true) {
 				return clientRepository.save(client);
 			} else {
 				throw new IllegalArgumentException("error information IllegalArgumentException");
-
 			}
-
+			
 		} catch (Exception e) {
 			throw new ConstraintViolationException("error information = /n" + e);
 		}
@@ -59,4 +57,5 @@ public class ClientService {
 		} else
 			return true;
 	}
+
 }
