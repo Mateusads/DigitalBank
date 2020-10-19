@@ -34,11 +34,11 @@ public class AddressResorce {
 	@Autowired
 	private ClientService clientService;
 	
-//	@GetMapping(path = "/")
-//	public ResponseEntity<List<Address>> findAll() {
-//		List<Address> list = addressService.returnAll();
-//		return ResponseEntity.ok().body(list);
-//	}
+	@GetMapping(path = "/")
+	public ResponseEntity<List<Address>> findAll() {
+		List<Address> list = addressService.returnAll();
+		return ResponseEntity.ok().body(list);
+	}
 
 	
 	@GetMapping(path = "/{id}")
