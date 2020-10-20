@@ -1,7 +1,10 @@
 package com.digitalBank.projectApiBank.Security;
 
 
+<<<<<<< HEAD
 import org.springframework.stereotype.Component;
+=======
+>>>>>>> main
 import com.digitalBank.projectApiBank.entities.Address;
 import com.digitalBank.projectApiBank.entities.Client;
 import com.digitalBank.projectApiBank.services.exceptions.ConstraintViolationException;
