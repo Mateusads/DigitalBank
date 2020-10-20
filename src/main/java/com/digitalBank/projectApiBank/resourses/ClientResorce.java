@@ -32,16 +32,11 @@ public class ClientResorce {
 	@Autowired
 	private ClientService clientService;
 	
-
-
-
-
 	@GetMapping(path = "/")
 	public ResponseEntity<List<Client>> findAll() {
 		List<Client> list = clientService.returnAll();
 		return ResponseEntity.ok().body(list);
 	}
-
 
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<Client> findById(@PathVariable Long id) {
@@ -49,17 +44,17 @@ public class ClientResorce {
 		return ResponseEntity.ok().body(clientObj);
 	}
 
-
 	@PostMapping(path = "/save")
 	public ResponseEntity<Object> saveClient(@RequestBody Client client) throws IOException, ServletException {
 		Client response = clientService.saveClient(client);
 		JwtCreateToken jwtCreateToken = new JwtCreateToken();
-		String token = jwtCreateToken.generateToken(response);
+		String token = jwtCreateToken.generateTokenClient(response, "jwtscretclient");
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/address/{id}")
                 .buildAndExpand(response.getIdClient())
                 .toUri();
-        return ResponseEntity.created(location).header("Token ", token)
+        return ResponseEntity.created(location)
+        		.header("Token_Client ", token)
         		.body(response);
 
 	}
