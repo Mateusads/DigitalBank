@@ -53,6 +53,7 @@ public class Address implements Serializable {
 	private String estado;
 
 
+	@JsonIgnore
 	@OneToMany
 	@JoinColumn(name = "client_id")
 	private List<Client> client = new ArrayList<>();

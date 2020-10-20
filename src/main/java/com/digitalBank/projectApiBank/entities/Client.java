@@ -56,7 +56,10 @@ public class Client implements Serializable {
 	@JsonIgnore
 	@ManyToOne
 	private Address adress;
-
+	
+	@JsonIgnore
+	@ManyToOne
+	private ImgCPF imgCPF;
 
 
 	public Client() {
@@ -126,11 +129,20 @@ public class Client implements Serializable {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
+	public ImgCPF getImgCPF() {
+		return imgCPF;
+	}
 
 
-//	public Address getAddress() {
-//		return getAddress();
-//	}
+	public Address getAdress() {
+		return adress;
+	}
+
+	public void setAdress(Address adress) {
+		this.adress = adress;
+	}
+
 
 
 

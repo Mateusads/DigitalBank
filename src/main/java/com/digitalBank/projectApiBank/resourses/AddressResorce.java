@@ -59,16 +59,19 @@ public class AddressResorce {
 	@PostMapping(path = "/{id}" )
 	public ResponseEntity<Address> saveAddress(@RequestBody Address address, @PathVariable Long id, String token) {
 		JwtCreateToken jwtCreateToken = new JwtCreateToken();
-		Boolean tokenVerify = jwtCreateToken.validateToken(token);
+		Boolean tokenVerify = jwtCreateToken.validateToken(token, "jwtscretclient");
+		token = jwtCreateToken.generateTokenAddress(address, "jwtscretaddress");
 		if(tokenVerify) {
 			Client cli1 = clientService.findById(id);
 			address.getClient().addAll(Arrays.asList(cli1));
 			Address response = addressService.saveAddress(address);
 		       URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 		                .path("/img/")
-		                .buildAndExpand(cli1.getIdClient())
+		                .buildAndExpand("")
 		                .toUri();
-		        return ResponseEntity.created(location).body(response);
+		        return ResponseEntity.created(location)
+		        		.header("Token_Address ", token)
+		        		.body(response);
 		}else {
 			throw new IllegalArgumentException("error information = ");
 		}
