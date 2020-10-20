@@ -2,17 +2,13 @@ package com.digitalBank.projectApiBank.Security;
 
 import java.util.Collections;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-
-import com.digitalBank.projectApiBank.entities.Client;
-
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 
 public class TokenAuthenticationService {
 	

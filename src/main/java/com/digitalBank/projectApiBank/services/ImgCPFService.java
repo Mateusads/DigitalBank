@@ -4,16 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.digitalBank.projectApiBank.entities.Client;
 import com.digitalBank.projectApiBank.entities.ImgCPF;
 import com.digitalBank.projectApiBank.repositories.ImgCPFRepository;
 import com.digitalBank.projectApiBank.services.exceptions.ConstraintViolationException;
@@ -31,7 +26,7 @@ public class ImgCPFService {
 
 	public boolean savePhoto(MultipartFile photo) {
 		try {
-			this.save(this.directoryPhotos, photo);
+			this.save(ImgCPFService.directoryPhotos, photo);
 			return true;
 
 		} catch (Exception e) {
@@ -41,7 +36,7 @@ public class ImgCPFService {
 	}
 
 	public void save(String directory, MultipartFile photo) {
-		Path directoryPath = Paths.get(this.raiz, directory);
+		Path directoryPath = Paths.get(ImgCPFService.raiz, directory);
 		Path photoPath = directoryPath.resolve(photo.getOriginalFilename());
 
 		try {

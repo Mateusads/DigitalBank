@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalBank.projectApiBank.Security.JwtCreateToken;
-import com.digitalBank.projectApiBank.Security.TokenAuthenticationService;
 import com.digitalBank.projectApiBank.entities.Client;
 import com.digitalBank.projectApiBank.services.ClientService;
 

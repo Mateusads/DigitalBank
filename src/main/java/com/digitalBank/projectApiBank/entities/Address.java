@@ -10,14 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-
-import org.hibernate.annotations.ManyToAny;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //cep obrigatório e no formato adequado
@@ -63,7 +58,7 @@ public class Address implements Serializable {
 
 	public Address(String cep, String rua, String bairro, String complemento, String cidade, String estado) {
 
-		this.idAdress = idAdress;
+
 		this.cep = cep;
 		this.rua = rua;
 		this.bairro = bairro;

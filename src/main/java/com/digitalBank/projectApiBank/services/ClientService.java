@@ -2,14 +2,9 @@ package com.digitalBank.projectApiBank.services;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.digitalBank.projectApiBank.entities.Client;
 import com.digitalBank.projectApiBank.repositories.ClientRepository;

@@ -1,16 +1,12 @@
 package com.digitalBank.projectApiBank.resourses.exceptions;
 
 import java.time.Instant;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import com.digitalBank.projectApiBank.services.exceptions.ConstraintViolationException;
-import com.digitalBank.projectApiBank.services.exceptions.DefaultHandlerExceptionResolver;
 import com.digitalBank.projectApiBank.services.exceptions.EntityNotFoundException;
 
 @ControllerAdvice
