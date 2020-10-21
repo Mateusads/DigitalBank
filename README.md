@@ -8,7 +8,8 @@ http://localhost:8080/swagger-ui.html
 PRIMEIRAMENTE DEVE-SE ADICIONAR O CLIENTE COM JSON CORRETAMENTE NO FORMATO
 ONDE CPF DEVE CONTER OS NUMEROS PONTOS E TRAÇOS COMO ESSE EXEMPLO "cpf": "456.456.456-75"
 
-A DATA DE NASCIMENTO É DO TIPO LOCALDATE: EXEMPLO "dataNascimento": "2000-10-10"
+A DATA DE NASCIMENTO É DO TIPO LOCALDATE: EXEMPLO "dataNascimento": "1993-09-14"
+HÁ RESTRIÇÃO DE IDADE, ENTÃO MENOR DE 18 ANOS NÃO CONSEGUE CONTINUAR O PROCESSO DE CADASTRO
 
 EMAIL NÃO PODE SER NULO, DEVE SER NO FORMATO E-MAIL E NÃO PODE SER REPETIDO "email": "mateus@medeiros.com"
 
@@ -22,7 +23,7 @@ exemplo completo Json
 
 {
   "cpf": "456.456.456-75",
-  "dataNascimento": "2000-10-10",
+  "dataNascimento": "1993-09-14",
   "email": "mateus@medeiros.com",
   "idClient": 0,
   "nome": "Mateus",
